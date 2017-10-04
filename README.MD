@@ -3,6 +3,6 @@
     - Store the last 20 conversions
     - Perform this with a JavaFX GUI
 
-This project aims to:
-    - **Adhere strictly to SOLID principles.
-    - **Make use of the MVC pattern encouraged by JavaFX
+  This project aims to;
+    - Adhere strictly to SOLID principles.
+    - Make use of the MVC pattern encouraged by JavaFX
