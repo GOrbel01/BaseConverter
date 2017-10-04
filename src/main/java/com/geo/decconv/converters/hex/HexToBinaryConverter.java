@@ -2,6 +2,9 @@ package com.geo.decconv.converters.hex;
 
 import com.geo.decconv.converters.Converter;
 import com.geo.decconv.converters.decimal.DecimalToBinaryConverter;
+import com.geo.decconv.converters.decimal.FourBitDecimalToBinaryConverter;
+import com.geo.decconv.values.BinaryValue;
+import com.geo.decconv.values.DecimalValue;
 import com.geo.decconv.values.Value;
 
 /**
@@ -9,10 +12,12 @@ import com.geo.decconv.values.Value;
  */
 public class HexToBinaryConverter implements Converter {
 
-    private DecimalToBinaryConverter decimalToBinaryConverter;
+    private FourBitDecimalToBinaryConverter decimalToBinaryConverter;
+    private HexValueHelper hexValueHelper;
 
     public HexToBinaryConverter() {
-        decimalToBinaryConverter = new DecimalToBinaryConverter();
+        decimalToBinaryConverter = new FourBitDecimalToBinaryConverter();
+        hexValueHelper = new HexValueHelper();
     }
 
     public Value convert(Value otherValue) {
@@ -24,9 +29,9 @@ public class HexToBinaryConverter implements Converter {
         StringBuilder binaryResult = new StringBuilder();
         if (hexString != null && hexString.length() > 0) {
             for (int i = 0; i < hexString.length(); i++) {
-
+                    binaryResult.append(decimalToBinaryConverter.convert(new DecimalValue(hexValueHelper.getHexAsDecimal(hexString.substring(i, i + 1)))));
             }
         }
-        return null;
+        return new BinaryValue(binaryResult.toString());
     }
 }

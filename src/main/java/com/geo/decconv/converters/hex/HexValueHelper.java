@@ -6,31 +6,29 @@ import java.util.HashMap;
  * Created by Tidus on 04/10/2017.
  */
 public class HexValueHelper {
-    private static final HashMap<String, Integer> hexValues;
+    private static final HashMap<String, Long> hexValues;
 
     static {
-        hexValues = new HashMap<String, Integer>();
-        hexValues.put("A", 10);
-        hexValues.put("B", 11);
-        hexValues.put("C", 12);
-        hexValues.put("D", 13);
-        hexValues.put("E", 14);
-        hexValues.put("F", 15);
+        hexValues = new HashMap<String, Long>();
+        hexValues.put("A", 10L);
+        hexValues.put("B", 11L);
+        hexValues.put("C", 12L);
+        hexValues.put("D", 13L);
+        hexValues.put("E", 14L);
+        hexValues.put("F", 15L);
     }
 
     public HexValueHelper() {
 
     }
 
-    public Integer getHexAsDecimal(String hexChar) {
+    public Long getHexAsDecimal(String hexChar) {
         if (hexChar.length() != 1) {
             throw new IllegalArgumentException("The string for this function must contain 1 character exactly.");
         }
 
-        Integer num = 0;
-
         try {
-            num = Integer.parseInt(hexChar);
+            Long num = Long.parseLong(hexChar);
             return num;
         } catch (NumberFormatException ex) {
             String hexVal = hexChar.toUpperCase();

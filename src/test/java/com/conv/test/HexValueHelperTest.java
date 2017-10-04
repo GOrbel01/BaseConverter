@@ -18,17 +18,17 @@ public class HexValueHelperTest {
 
     @Test
     public void testHexValueHelper() {
-        int test = hexValueHelper.getHexAsDecimal("4");
-        assertEquals(4, test);
+        long test = hexValueHelper.getHexAsDecimal("4");
+        assertEquals(4L, test);
 
-        int test2 = hexValueHelper.getHexAsDecimal("5");
-        assertEquals(5, test2);
+        long test2 = hexValueHelper.getHexAsDecimal("5");
+        assertEquals(5L, test2);
 
-        int test3 = hexValueHelper.getHexAsDecimal("B");
-        assertEquals(11, test3);
+        long test3 = hexValueHelper.getHexAsDecimal("B");
+        assertEquals(11L, test3);
 
-        int test4 = hexValueHelper.getHexAsDecimal("F");
-        assertEquals(15, test4);
+        long test4 = hexValueHelper.getHexAsDecimal("F");
+        assertEquals(15L, test4);
     }
 
     @Test

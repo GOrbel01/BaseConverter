@@ -7,7 +7,11 @@ import com.geo.decconv.values.Value;
 /**
  * Created by Tidus on 04/10/2017.
  */
-public class DecimalToBinaryConverter implements Converter {
+public class FourBitDecimalToBinaryConverter implements Converter {
+
+    public FourBitDecimalToBinaryConverter() {
+
+    }
 
     public Value convert(Value otherValue) {
         return convertToBinary(otherValue);
@@ -21,10 +25,15 @@ public class DecimalToBinaryConverter implements Converter {
         } else {
             throw new IllegalArgumentException("Decimal Value must be of type Long.");
         }
+
         while (decVal >= 1) {
             sb.append(decVal % 2);
             decVal = decVal / 2;
         }
-        return new BinaryValue(sb.reverse().toString());
+        sb.reverse();
+        while (sb.length() < 4) {
+            sb.insert(0, "0");
+        }
+        return new BinaryValue(sb.toString());
     }
 }
