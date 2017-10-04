@@ -4,5 +4,5 @@
     - Perform this with a JavaFX GUI
 
 This project aims to:
-    - Adhere strictly to SOLID principles.
-    - Make use of the MVC pattern encouraged by JavaFX
+    - **Adhere strictly to SOLID principles.
+    - **Make use of the MVC pattern encouraged by JavaFX
