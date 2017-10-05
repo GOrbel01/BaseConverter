@@ -21,5 +21,9 @@ public class TestBinaryToDecimalConverter {
         res = conv.convert(new BinaryValue("10010001"));
 
         assertEquals(145L, res.getValue());
+
+        res = conv.convert(new BinaryValue("00111"));
+
+        assertEquals(7L, res.getValue());
     }
 }

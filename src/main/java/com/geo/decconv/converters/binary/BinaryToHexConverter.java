@@ -7,7 +7,9 @@ import com.geo.decconv.values.Value;
  * Created by Tidus on 04/10/2017.
  */
 public class BinaryToHexConverter implements Converter {
+    public BinaryToHexConverter() {
 
+    }
 
     public Value convert(Value otherValue) {
         return null;

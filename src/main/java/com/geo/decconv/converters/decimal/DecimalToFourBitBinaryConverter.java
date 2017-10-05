@@ -7,9 +7,9 @@ import com.geo.decconv.values.Value;
 /**
  * Created by Tidus on 04/10/2017.
  */
-public class FourBitDecimalToBinaryConverter implements Converter {
+public class DecimalToFourBitBinaryConverter implements Converter {
 
-    public FourBitDecimalToBinaryConverter() {
+    public DecimalToFourBitBinaryConverter() {
 
     }
 

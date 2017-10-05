@@ -1,8 +1,7 @@
 package com.geo.decconv.converters.hex;
 
 import com.geo.decconv.converters.Converter;
-import com.geo.decconv.converters.decimal.DecimalToBinaryConverter;
-import com.geo.decconv.converters.decimal.FourBitDecimalToBinaryConverter;
+import com.geo.decconv.converters.decimal.DecimalToFourBitBinaryConverter;
 import com.geo.decconv.values.BinaryValue;
 import com.geo.decconv.values.DecimalValue;
 import com.geo.decconv.values.Value;
@@ -12,11 +11,11 @@ import com.geo.decconv.values.Value;
  */
 public class HexToBinaryConverter implements Converter {
 
-    private FourBitDecimalToBinaryConverter decimalToBinaryConverter;
+    private DecimalToFourBitBinaryConverter decimalToBinaryConverter;
     private HexValueHelper hexValueHelper;
 
     public HexToBinaryConverter() {
-        decimalToBinaryConverter = new FourBitDecimalToBinaryConverter();
+        decimalToBinaryConverter = new DecimalToFourBitBinaryConverter();
         hexValueHelper = new HexValueHelper();
     }
 

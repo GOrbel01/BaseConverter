@@ -19,10 +19,9 @@ public class DecimalToHexConverter implements Converter {
     //TODO
     private Value decimalToHex(Value otherVal) {
         long decVal = 0L;
-        if (otherVal.getValue() instanceof Long) {
-            decVal = (Long) otherVal.getValue();
-        } else {
-            throw new IllegalArgumentException("Decimal Value must be of type Long.");
+        long quot = 0;
+        while (decVal >= 1) {
+
         }
         return null;
     }
