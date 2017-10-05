@@ -1,6 +1,8 @@
 package com.geo.decconv.converters.decimal;
 
 import com.geo.decconv.converters.Converter;
+import com.geo.decconv.converters.hex.HexValueHelper;
+import com.geo.decconv.values.HexValue;
 import com.geo.decconv.values.Value;
 
 /**
@@ -8,21 +10,35 @@ import com.geo.decconv.values.Value;
  */
 public class DecimalToHexConverter implements Converter {
 
-    public DecimalToHexConverter() {
+    private HexValueHelper hexValueHelper;
 
+    public DecimalToHexConverter() {
+        hexValueHelper = new HexValueHelper();
     }
 
     public Value convert(Value otherValue) {
-        return null;
+        return decimalToHex(otherValue);
     }
 
-    //TODO
     private Value decimalToHex(Value otherVal) {
-        long decVal = 0L;
-        long quot = 0;
-        while (decVal >= 1) {
-
+        Long decVal = 0L;
+        if (otherVal.getValue() instanceof Long) {
+            decVal = (Long) otherVal.getValue();
+        } else {
+            throw new IllegalArgumentException("Decimal Value must be of type Long.");
         }
-        return null;
+
+        StringBuilder sb = new StringBuilder();
+        if (decVal == 0) {
+            return new HexValue("0");
+        }
+        while (decVal >= 1) {
+            long rem = decVal % 16;
+            sb.append(hexValueHelper.getLongAsHex(rem));
+            decVal = decVal / 16;
+        }
+
+        sb.reverse();
+        return new HexValue(sb.toString());
     }
 }
