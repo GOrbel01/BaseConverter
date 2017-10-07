@@ -25,7 +25,9 @@ public class DecimalConverterMain extends Application {
     public void initialiseLayout() {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader();
-            URL url = new File("src/main/java/com/geo/decconv/main/calcwindow.fxml").toURI().toURL();
+
+//            URL url = new File("//src/main/java/com/geo/decconv/main/calcwindow.fxml").toURI().toURL();
+            URL url = DecimalConverterMain.class.getResource("/calcwindow.fxml");
             System.out.println(url.getPath());
             fxmlLoader.setLocation(url);
             rootLayout = (AnchorPane) fxmlLoader.load();

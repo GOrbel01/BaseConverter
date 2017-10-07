@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.geo.decconv.ui.BinaryTextField?>
+<?import com.geo.decconv.ui.DecimalTextField?>
+<?import com.geo.decconv.ui.HexTextField?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
@@ -7,7 +10,6 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextArea?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -51,16 +53,16 @@
                         <Label text="Binary" />
                         <Label text="Hexadecimal" GridPane.rowIndex="1" />
                         <Label text="Decimal" GridPane.rowIndex="2" />
-                        <TextField fx:id="binEditText" onKeyReleased="#handleUpdateBinaryValue" GridPane.columnIndex="1" />
-                        <TextField fx:id="hexEditText" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                        <TextField fx:id="decEditText" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <BinaryTextField fx:id="binEditText" onInputMethodTextChanged="#testResponse" onKeyReleased="#handleUpdateBinaryValue" onMouseClicked="#handleBinaryMouseClick" GridPane.columnIndex="1" />
+                        <HexTextField fx:id="hexEditText" onMouseClicked="#handleHexMouseClick" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <DecimalTextField fx:id="decEditText" onMouseClicked="#handleDecimalMouseClick" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                      </children>
                      <padding>
                         <Insets top="10.0" />
                      </padding>
                   </GridPane>
                   <HBox layoutX="308.0" layoutY="341.0" prefHeight="42.0" prefWidth="96.0" AnchorPane.bottomAnchor="105.0" AnchorPane.rightAnchor="150.0" />
-                        <Button fx:id="convButton" alignment="CENTER" layoutX="172.0" layoutY="325.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="94.0" text="Convert" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" />
+                        <Button fx:id="convButton" alignment="CENTER" layoutX="172.0" layoutY="325.0" mnemonicParsing="false" onMouseClicked="#handleButtonClick" prefHeight="40.0" prefWidth="94.0" text="Convert" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" />
                   <TextArea fx:id="messageText" editable="false" layoutX="109.0" layoutY="149.0" prefHeight="173.0" prefWidth="200.0" AnchorPane.bottomAnchor="70.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="150.0" />
                </children></AnchorPane>
         </items>

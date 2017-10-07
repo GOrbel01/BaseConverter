@@ -31,16 +31,19 @@
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-jar-plugin</artifactId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.7.0</version>
                 <configuration>
-                    <archive>
-                        <manifest>
-                            <mainClass>com.geo.decconv.main.DecimalConverterMain</mainClass>
-                        </manifest>
-                    </archive>
+                    <source>1.8</source>
+                    <target>1.8</target>
                 </configuration>
             </plugin>
         </plugins>
+        <resources>
+            <resource>
+                <directory>src/main/java/com/geo/decconv/main</directory>
+            </resource>
+        </resources>
     </build>
 
     <dependencies>
