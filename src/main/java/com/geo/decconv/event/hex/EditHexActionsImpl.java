@@ -19,6 +19,11 @@ public class EditHexActionsImpl extends AbstractActions implements EditHexAction
 
     @Override
     public void handleUpdateHexValue() {
-        //TODO Validate
+
+    }
+
+    @Override
+    public void validateData() {
+
     }
 }

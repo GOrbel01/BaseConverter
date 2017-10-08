@@ -14,6 +14,14 @@ public class EditBinaryActionsImpl extends AbstractActions implements EditBinary
 
     public void handleUpdateBinaryValue() {
         getController().getMessageText().setText("");
+    }
+
+    public ActionType getType() {
+        return ActionType.BINARY;
+    }
+
+    @Override
+    public void validateData() {
         if (!getController().getBinEditText().getText().equals("")) {
             String text = getController().getBinEditText().getText();
             String lastVal = text.substring(text.length() - 1, text.length());
@@ -25,9 +33,5 @@ public class EditBinaryActionsImpl extends AbstractActions implements EditBinary
                 }
             }
         }
-    }
-
-    public ActionType getType() {
-        return ActionType.BINARY;
     }
 }

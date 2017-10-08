@@ -14,9 +14,11 @@ import com.geo.decconv.ui.BinaryTextField;
 import com.geo.decconv.ui.DecimalTextField;
 import com.geo.decconv.ui.HexTextField;
 import javafx.fxml.FXML;
+import javafx.scene.Scene;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
 
 public class DecimalConverterController {
 
@@ -42,14 +44,12 @@ public class DecimalConverterController {
     private EditHexActions editHexActions;
     private ButtonActions buttonActions;
 
-
-    private DecimalConverterMain application;
-
     public DecimalConverterController() {
         editBinaryActions = new EditBinaryActionsImpl(this);
         editDecimalActions = new EditDecimalActionsImpl(this);
         editHexActions = new EditHexActionsImpl(this);
         buttonActions = new ButtonActionsImpl(this);
+
     }
 
     //Implemented in this way due to constraints placed by JavaFX. Controller must be in same package as fxml.
@@ -120,7 +120,27 @@ public class DecimalConverterController {
         System.out.println("RESPONSE!");
     }
 
+    int i = 0;
 
+    public void setupHandlers(Scene scene) {
+        binEditText.setOnKeyReleased(event -> {
+            if (event.getCode() == KeyCode.TAB) {
+                editBinaryActions.handleClick();
+            }
+        });
+
+        decEditText.setOnKeyReleased(event -> {
+            if (event.getCode() == KeyCode.TAB) {
+                editDecimalActions.handleClick();
+            }
+        });
+
+        hexEditText.setOnKeyReleased(event -> {
+            if (event.getCode() == KeyCode.TAB) {
+                editHexActions.handleClick();
+            }
+        });
+    }
 
     public TextField getBinEditText() {
         return binEditText;
@@ -132,10 +152,6 @@ public class DecimalConverterController {
 
     public TextField getDecEditText() {
         return decEditText;
-    }
-
-    public DecimalConverterMain getApplication() {
-        return application;
     }
 
     public TextArea getMessageText() {

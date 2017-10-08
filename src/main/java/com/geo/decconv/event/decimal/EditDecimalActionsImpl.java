@@ -19,4 +19,9 @@ public class EditDecimalActionsImpl extends AbstractActions implements EditDecim
     public ActionType getType() {
         return ActionType.DECIMAL;
     }
+
+    @Override
+    public void validateData() {
+
+    }
 }

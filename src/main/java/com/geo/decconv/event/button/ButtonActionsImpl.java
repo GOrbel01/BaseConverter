@@ -3,6 +3,7 @@ package com.geo.decconv.event.button;
 import com.geo.decconv.converters.binary.BinaryToDecimalConverter;
 import com.geo.decconv.converters.binary.BinaryToHexConverter;
 import com.geo.decconv.event.ActionType;
+import com.geo.decconv.event.validation.ConversionValidator;
 import com.geo.decconv.main.DecimalConverterController;
 import com.geo.decconv.event.AbstractActions;
 import com.geo.decconv.model.ConvertOperation;
@@ -16,6 +17,7 @@ import java.util.Optional;
 public class ButtonActionsImpl extends AbstractActions implements ButtonActions {
 
     private ConvertEventHandler convertEventHandler;
+    private ConversionValidator validator;
 
     public ButtonActionsImpl(DecimalConverterController decimalConverterController) {
         super(decimalConverterController);
@@ -51,5 +53,10 @@ public class ButtonActionsImpl extends AbstractActions implements ButtonActions 
                 getController().getDecEditText().setText(operation.getDecimalValue() + "");
                 break;
         }
+    }
+
+    @Override
+    public void validateData() {
+
     }
 }

@@ -3,6 +3,7 @@ package com.geo.decconv.main;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.input.KeyCode;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
@@ -32,7 +33,8 @@ public class DecimalConverterMain extends Application {
             fxmlLoader.setLocation(url);
             rootLayout = (AnchorPane) fxmlLoader.load();
             Scene scene = new Scene(rootLayout);
-
+            DecimalConverterController controller = fxmlLoader.getController();
+            controller.setupHandlers(scene);
             primaryStage.show();
             primaryStage.setScene(scene);
         } catch (IOException ex) {
