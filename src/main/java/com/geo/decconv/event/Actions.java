@@ -11,6 +11,4 @@ public interface Actions {
     ActionType getType();
 
     void handleClick();
-
-    void validateData();
 }

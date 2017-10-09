@@ -20,18 +20,4 @@ public class EditBinaryActionsImpl extends AbstractActions implements EditBinary
         return ActionType.BINARY;
     }
 
-    @Override
-    public void validateData() {
-        if (!getController().getBinEditText().getText().equals("")) {
-            String text = getController().getBinEditText().getText();
-            String lastVal = text.substring(text.length() - 1, text.length());
-            if (!lastVal.equals("0") && !lastVal.equals("1") && text.length() != 0) {
-                getController().getMessageText().setText("You Can Only Enter 0 or 1 for a Binary Number!");
-                if (text.length() > 1) {
-                    getController().getBinEditText().setText(text.substring(0, text.length() - 1));
-                    getController().getBinEditText().end();
-                }
-            }
-        }
-    }
 }

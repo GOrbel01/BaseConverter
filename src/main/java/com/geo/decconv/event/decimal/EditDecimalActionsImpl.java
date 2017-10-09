@@ -20,8 +20,4 @@ public class EditDecimalActionsImpl extends AbstractActions implements EditDecim
         return ActionType.DECIMAL;
     }
 
-    @Override
-    public void validateData() {
-
-    }
 }
