@@ -16,6 +16,12 @@ public class ValidationResult {
         this.message = message;
     }
 
+    public ValidationResult(boolean isValid, ActionType actionType) {
+        this.typeValidated = actionType;
+        this.isValid = isValid;
+        message = "";
+    }
+
     public boolean isValid() {
         return isValid;
     }

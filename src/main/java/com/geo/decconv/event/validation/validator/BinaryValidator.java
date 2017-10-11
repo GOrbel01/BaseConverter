@@ -10,18 +10,19 @@ import java.util.function.Predicate;
 /**
  * Created by Tidus on 09/10/2017.
  */
-public class BinaryValidator implements Validator {
+public class BinaryValidator extends AbstractValidator implements Validator {
+    public BinaryValidator() {
+        super(ActionType.BINARY);
+    }
+
     @Override
     public ValidationResult validateData(String text) {
-        boolean result = true;
-        String message = "";
         Predicate<Character> cond = ch -> ch == '0' || ch == '1';
         for (Character ch : text.toCharArray()) {
             if (!cond.test(ch)) {
-                result = false;
-                message = ErrorMessages.BIN_VAL_MSG;
+                return new ValidationResult(false, getActionType(), ErrorMessages.BIN_VAL_MSG);
             }
         }
-        return new ValidationResult(result, ActionType.BINARY, message);
+        return new ValidationResult(true, getActionType());
     }
 }

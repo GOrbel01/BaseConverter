@@ -1,5 +1,6 @@
 package com.validation.test;
 
+import com.geo.decconv.event.errors.ErrorMessages;
 import com.geo.decconv.event.validation.validator.HexValidator;
 import com.geo.decconv.event.validation.validator.Validator;
 import org.junit.Test;
@@ -25,5 +26,10 @@ public class TestHexStringValidation {
 
         test = "8A6S";
         assertEquals(false, validator.validateData(test).isValid());
+
+        assertEquals(ErrorMessages.HEX_VAL_MSG, validator.validateData(test).getMessage());
+
+        test = "734BA";
+        assertEquals("", validator.validateData(test).getMessage());
     }
 }
