@@ -1,6 +1,7 @@
 package com.geo.decconv.event.validation.validator;
 
 import com.geo.decconv.event.ActionType;
+import com.geo.decconv.event.validation.ValidationResult;
 
 /**
  * Created by Tidus on 11/10/2017.

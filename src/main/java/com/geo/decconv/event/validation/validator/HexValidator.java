@@ -14,6 +14,9 @@ public class HexValidator extends AbstractValidator implements Validator {
 
     @Override
     public ValidationResult validateData(String text) {
+        if (text.isEmpty()) {
+            return new ValidationResult(false, getActionType(), ErrorMessages.NO_TEXT_MSG);
+        }
         for (Character ch : text.toCharArray()) {
             if (!isHexChar(ch) && !Character.isDigit(ch)) {
                 return new ValidationResult(false, getActionType(), ErrorMessages.HEX_VAL_MSG);

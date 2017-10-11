@@ -14,6 +14,9 @@ public class DecimalValidator extends AbstractValidator implements Validator {
 
     @Override
     public ValidationResult validateData(String text) {
+        if (text.isEmpty()) {
+            return new ValidationResult(false, getActionType(), ErrorMessages.NO_TEXT_MSG);
+        }
         for (Character ch : text.toCharArray()) {
             if (!Character.isDigit(ch)) {
                 return new ValidationResult(false, getActionType(), ErrorMessages.DEC_VAL_MSG);

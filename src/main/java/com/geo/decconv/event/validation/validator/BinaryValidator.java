@@ -17,6 +17,9 @@ public class BinaryValidator extends AbstractValidator implements Validator {
 
     @Override
     public ValidationResult validateData(String text) {
+        if (text.isEmpty()) {
+            return new ValidationResult(false, getActionType(), ErrorMessages.NO_TEXT_MSG);
+        }
         Predicate<Character> cond = ch -> ch == '0' || ch == '1';
         for (Character ch : text.toCharArray()) {
             if (!cond.test(ch)) {

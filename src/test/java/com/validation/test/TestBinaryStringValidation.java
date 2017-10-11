@@ -24,5 +24,10 @@ public class TestBinaryStringValidation {
 
         test = "-A1-01";
         assertEquals(false, binaryValidator.validateData(test).isValid());
+
+        assertEquals(ErrorMessages.BIN_VAL_MSG, binaryValidator.validateData(test).getMessage());
+
+        test = "10110";
+        assertEquals("", binaryValidator.validateData(test).getMessage());
     }
 }

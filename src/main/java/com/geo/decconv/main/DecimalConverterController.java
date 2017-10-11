@@ -142,6 +142,15 @@ public class DecimalConverterController {
         });
     }
 
+    public void setWelcomeMessage() {
+        getMessageText().setText("Base Conversion Application written in Java by FinalSquall.\n" +
+                "This application converts seamlessly between Base2, Base10 and Base16.");
+}
+
+    public boolean allFieldsEmpty() {
+        return decEditText.getText().isEmpty() && binEditText.getText().isEmpty() && hexEditText.getText().isEmpty();
+    }
+
     public TextField getBinEditText() {
         return binEditText;
     }

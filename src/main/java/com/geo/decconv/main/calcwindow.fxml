@@ -15,6 +15,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.geo.decconv.main.DecimalConverterController">
          <children>
@@ -34,10 +35,13 @@
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                <children>
-                  <Label layoutY="5.0" text="Decimal Calculator" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="5.0">
+                  <Label layoutY="5.0" text="Base Converter" underline="true" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="5.0">
                      <padding>
                         <Insets left="3.0" />
                      </padding>
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
                   </Label>
                   <GridPane layoutX="7.0" layoutY="23.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="30.0">
                     <columnConstraints>
@@ -50,10 +54,19 @@
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <Label text="Binary" />
-                        <Label text="Hexadecimal" GridPane.rowIndex="1" />
-                        <Label text="Decimal" GridPane.rowIndex="2" />
-                        <BinaryTextField fx:id="binEditText" onInputMethodTextChanged="#testResponse" onKeyReleased="#handleUpdateBinaryValue" onMouseClicked="#handleBinaryMouseClick" GridPane.columnIndex="1" />
+                        <Label text="Binary">
+                           <padding>
+                              <Insets left="3.0" />
+                           </padding></Label>
+                        <Label text="Hexadecimal" GridPane.rowIndex="1">
+                           <padding>
+                              <Insets left="3.0" />
+                           </padding></Label>
+                        <Label text="Decimal" GridPane.rowIndex="2">
+                           <padding>
+                              <Insets left="3.0" />
+                           </padding></Label>
+                        <BinaryTextField fx:id="binEditText" onKeyReleased="#handleUpdateBinaryValue" onMouseClicked="#handleBinaryMouseClick" GridPane.columnIndex="1" />
                         <HexTextField fx:id="hexEditText" onMouseClicked="#handleHexMouseClick" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                         <DecimalTextField fx:id="decEditText" onMouseClicked="#handleDecimalMouseClick" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                      </children>
