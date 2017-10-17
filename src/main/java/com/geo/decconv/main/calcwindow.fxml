@@ -66,9 +66,9 @@
                            <padding>
                               <Insets left="3.0" />
                            </padding></Label>
-                        <BinaryTextField fx:id="binEditText" onKeyReleased="#handleUpdateBinaryValue" onMouseClicked="#handleBinaryMouseClick" GridPane.columnIndex="1" />
-                        <HexTextField fx:id="hexEditText" onMouseClicked="#handleHexMouseClick" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                        <DecimalTextField fx:id="decEditText" onMouseClicked="#handleDecimalMouseClick" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <BinaryTextField fx:id="binEditText" onMouseClicked="#handleBinaryMouseClick" onMouseDragged="#handleBinaryMouseDrag" GridPane.columnIndex="1" />
+                        <HexTextField fx:id="hexEditText" onMouseClicked="#handleHexMouseClick" onMouseDragged="#handleHexMouseDrag" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <DecimalTextField fx:id="decEditText" onMouseClicked="#handleDecimalMouseClick" onMouseDragged="#handleDecimalMouseDrag" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                      </children>
                      <padding>
                         <Insets top="10.0" />

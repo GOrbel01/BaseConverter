@@ -16,9 +16,4 @@ public class EditHexActionsImpl extends AbstractActions implements EditHexAction
     public ActionType getType() {
         return ActionType.HEXADECIMAL;
     }
-
-    @Override
-    public void handleUpdateHexValue() {
-
-    }
 }

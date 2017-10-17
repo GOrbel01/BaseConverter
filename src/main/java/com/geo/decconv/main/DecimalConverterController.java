@@ -60,6 +60,8 @@ public class DecimalConverterController {
     private EditHexActions editHexActions;
     private ButtonActions buttonActions;
 
+    private static final int MAX_STORED = 10;
+
     public DecimalConverterController() {
         editBinaryActions = new EditBinaryActionsImpl(this);
         editDecimalActions = new EditDecimalActionsImpl(this);
@@ -75,12 +77,12 @@ public class DecimalConverterController {
         Binary Actions
     */
 
-    public void handleUpdateBinaryValue() {
-        editBinaryActions.handleUpdateBinaryValue();
-    }
-
     public void handleBinaryMouseClick() {
         editBinaryActions.handleClick();
+    }
+
+    public void handleBinaryMouseDrag() {
+        editBinaryActions.handleMouseDrag();
     }
 
     /*
@@ -92,12 +94,13 @@ public class DecimalConverterController {
         Decimal Actions
      */
 
-    public void handleUpdateDecimalValue() {
-
-    }
 
     public void handleDecimalMouseClick() {
         editDecimalActions.handleClick();
+    }
+
+    public void handleDecimalMouseDrag() {
+        editDecimalActions.handleMouseDrag();
     }
 
     /*
@@ -108,12 +111,12 @@ public class DecimalConverterController {
         Hex Actions
      */
 
-    public void handleUpdateHexValue() {
-
-    }
-
     public void handleHexMouseClick() {
         editHexActions.handleClick();
+    }
+
+    public void handleHexMouseDrag() {
+        editHexActions.handleMouseDrag();
     }
 
     /*
@@ -139,6 +142,16 @@ public class DecimalConverterController {
 
     int i = 0;
 
+    public void updateList(ConvertOperation operation) {
+        convHistTable.getItems().add(0, operation);
+        if (convHistTable.getItems().size() > MAX_STORED) {
+            convHistTable.getItems().add(0, operation);
+            convHistTable.getItems().remove(convHistTable.getItems().size() - 1);
+            convHistTable.getItems().remove(convHistTable.getItems().size() - 1);
+        }
+        convHistTable.getColumns().setAll(histTableCol);
+    }
+
     public void setupHandlers(Scene scene) {
         binEditText.setOnKeyReleased(event -> {
             if (event.getCode() == KeyCode.TAB) {
@@ -159,23 +172,20 @@ public class DecimalConverterController {
         });
     }
 
-    public void setWelcomeMessage() {
+    public void setupApp() {
         getMessageText().setText("Base Conversion Application written in Java by FinalSquall.\n" +
                 "This application converts seamlessly between Base2, Base10 and Base16.");
-
-        ConvertOperationList convertOperations = new ConvertOperationList();
-        convertOperations.add(new ConvertOperation("01101", "D", 13, ConversionType.BINARY));
-        convertOperations.add(new ConvertOperation("1111", "F", 15, ConversionType.HEX));
-        convHistTable.setItems(convertOperations);
 
         histTableCol.setCellValueFactory(
                 new PropertyValueFactory<ConvertOperation, String>("histColumnText"));
 
-        convHistTable.getColumns().setAll(histTableCol);
-
         convHistTable.getSelectionModel().selectedItemProperty().addListener((observable, oldVal, newVal) -> {
             if (newVal != null) {
-                System.out.println(convHistTable.getSelectionModel().getSelectedItem());
+                ConvertOperation convertOperation = convHistTable.getSelectionModel().getSelectedItem();
+                binEditText.setText(convertOperation.getBinaryString());
+                hexEditText.setText(convertOperation.getHexString());
+                decEditText.setText("" + convertOperation.getDecimalValue());
+                messageText.setText(convertOperation.getHistColumnText() + " Loaded.");
             }
         });
     }

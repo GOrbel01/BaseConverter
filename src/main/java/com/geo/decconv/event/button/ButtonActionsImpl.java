@@ -30,7 +30,7 @@ public class ButtonActionsImpl extends AbstractActions implements ButtonActions 
     }
 
     @Override
-    public void handleClick() {
+    public boolean handleClick() {
         getController().getMessageText().setText("");
 
         Optional<ValidationResult> validationResult = validationManager.runValidation();
@@ -38,17 +38,24 @@ public class ButtonActionsImpl extends AbstractActions implements ButtonActions 
             ValidationResult result = validationResult.get();
 
             if (result.isValid()) {
-                handleValidResult();
+                return handleValidResult();
             } else {
                 handleInvalidResult(result);
+                return false;
             }
+        } else {
+            return false;
         }
     }
 
-    private void handleValidResult() {
+    private boolean handleValidResult() {
         Optional<ConvertOperation> result = convertEventHandler.handleConversion(getController());
         if (result.isPresent()) {
             assignResults(result.get());
+            getController().updateList(result.get());
+            return true;
+        } else {
+            return false;
         }
     }
 

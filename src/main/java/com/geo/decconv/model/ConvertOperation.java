@@ -104,7 +104,7 @@ public class ConvertOperation {
     }
 
     private String getDateString() {
-        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yy h:mm a", Locale.getDefault());
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yy h:mm.ss.SSS a", Locale.getDefault());
         return sdf.format(dateCreated);
     }
 

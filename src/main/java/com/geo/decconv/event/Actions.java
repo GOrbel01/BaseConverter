@@ -6,9 +6,18 @@ package com.geo.decconv.event;
 public interface Actions {
     /**
      * All Actions have an Action Type
-     * @return
+     * @return ActionType of the action executed
      */
     ActionType getType();
 
-    void handleClick();
+    /**
+     * Response for a click event on TextFields and ConvertButton
+     * @return True if operation successful else false
+     */
+    boolean handleClick();
+
+    /**
+     * Handle Dragged Mouse into View
+     */
+    void handleMouseDrag();
 }

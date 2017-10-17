@@ -12,10 +12,6 @@ public class EditDecimalActionsImpl extends AbstractActions implements EditDecim
         super(decimalConverterController);
     }
 
-    public void handleUpdateDecimalValue() {
-        //TODO Validate
-    }
-
     public ActionType getType() {
         return ActionType.DECIMAL;
     }

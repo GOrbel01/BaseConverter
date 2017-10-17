@@ -17,8 +17,14 @@ public abstract class AbstractActions implements Actions {
     }
 
     @Override
-    public void handleClick() {
+    public boolean handleClick() {
         getController().setLastAction(getType());
         getController().getMessageText().setText(getController().getLastAction().name());
+        return true;
+    }
+
+    @Override
+    public void handleMouseDrag() {
+        handleClick();
     }
 }

@@ -35,7 +35,7 @@ public class DecimalConverterMain extends Application {
             Scene scene = new Scene(rootLayout);
             DecimalConverterController controller = fxmlLoader.getController();
             controller.setupHandlers(scene);
-            controller.setWelcomeMessage();
+            controller.setupApp();
             primaryStage.show();
             primaryStage.setScene(scene);
         } catch (IOException ex) {

@@ -12,10 +12,6 @@ public class EditBinaryActionsImpl extends AbstractActions implements EditBinary
         super(controller);
     }
 
-    public void handleUpdateBinaryValue() {
-        getController().getMessageText().setText("");
-    }
-
     public ActionType getType() {
         return ActionType.BINARY;
     }
